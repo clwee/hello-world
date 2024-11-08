@@ -7,7 +7,7 @@ public class Demo {
         int smokerCount = 0;
         int nonSmokerCount = 0;
 
-        // Read policies from file
+        
         try (BufferedReader br = new BufferedReader(new FileReader("PolicyInformation.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -20,11 +20,11 @@ public class Demo {
                 double height = Double.parseDouble(br.readLine());
                 double weight = Double.parseDouble(br.readLine());
 
-                // Create Policy object
+                
                 Policy policy = new Policy(policyNumber, providerName, firstName, lastName, age, smokingStatus, height, weight);
                 policies.add(policy);
 
-                // Count smokers and non-smokers
+                
                 if (smokingStatus.equalsIgnoreCase("smoker")) {
                     smokerCount++;
                 } else {
@@ -35,13 +35,13 @@ public class Demo {
             System.out.println("Error reading file: " + e.getMessage());
         }
 
-        // Display each policy's information
+        
         for (Policy policy : policies) {
             System.out.println(policy);
             System.out.println();
         }
 
-        // Display number of smokers and non-smokers
+        
         System.out.println("The number of policies with a smoker is: " + smokerCount);
         System.out.println("The number of policies with a non-smoker is: " + nonSmokerCount);
     }
